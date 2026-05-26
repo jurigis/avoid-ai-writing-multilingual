@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Claude Code local overrides (personal permissions, not project config)
+# .claude/settings.local.json is machine-specific — never commit it
+.claude/settings.local.json
