@@ -11,12 +11,14 @@ Goal: one `SKILL-XX.md` per language (ISO 639-1 code), grounded exclusively in r
 ├── CLAUDE.md               ← this file (authoring instructions for AI)
 ├── SKILL-DE.md             ← German (done, v2.1.0, source-verified)
 ├── SKILL-RO.md             ← Romanian (done, v1.0.0, source-verified)
+├── SKILL-IT.md             ← Italian (done, v1.0.0, source-verified)
 ├── SKILL-FR.md             ← French (TODO)
 ├── SKILL-ES.md             ← Spanish (TODO)
 ├── README.md               ← Public documentation and install instructions
 └── sources/
-    ├── DE-sources.md       ← Citations for German patterns  [planned]
-    └── RO-sources.md       ← Citations for Romanian patterns
+    ├── DE-sources.md       ← Citations for German patterns
+    ├── RO-sources.md       ← Citations for Romanian patterns
+    └── IT-sources.md       ← Citations for Italian patterns
 ```
 
 ## How to Create a New Language Skill

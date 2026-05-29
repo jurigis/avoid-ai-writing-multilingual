@@ -12,8 +12,9 @@ Each `SKILL-XX.md` file is grounded in **statistically documented, language-nati
 |---|---|---|---|---|
 | [SKILL-DE.md](SKILL-DE.md) | German (Deutsch) | 2.1.0 | ✅ Ready | LinkedIn / New Work / corporate comms |
 | [SKILL-RO.md](SKILL-RO.md) | Romanian (Română) | 1.0.0 | ✅ Ready | NGO / EU-funded project communication |
+| [SKILL-IT.md](SKILL-IT.md) | Italian (Italiano) | 1.0.0 | ✅ Ready | Cultural institution communication / startup press releases |
 
-Planned: French (`SKILL-FR.md`), Spanish (`SKILL-ES.md`), Italian (`SKILL-IT.md`) — PRs welcome.
+Planned: French (`SKILL-FR.md`), Spanish (`SKILL-ES.md`) — PRs welcome.
 
 ---
 
@@ -42,11 +43,13 @@ Skills live in `.md` files. The `name:` field in the frontmatter becomes the sla
 mkdir -p ~/.claude/skills
 cp SKILL-DE.md ~/.claude/skills/avoid-ai-writing-de.md
 cp SKILL-RO.md ~/.claude/skills/avoid-ai-writing-ro.md
+cp SKILL-IT.md ~/.claude/skills/avoid-ai-writing-it.md
 
 # Windows (PowerShell)
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
 Copy-Item SKILL-DE.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-de.md"
 Copy-Item SKILL-RO.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-ro.md"
+Copy-Item SKILL-IT.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-it.md"
 ```
 
 **Project install** — available only in the current repository:
@@ -54,12 +57,14 @@ Copy-Item SKILL-RO.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-ro.md"
 mkdir -p .claude/skills
 cp SKILL-DE.md .claude/skills/
 cp SKILL-RO.md .claude/skills/
+cp SKILL-IT.md .claude/skills/
 ```
 
 After installing, invoke in any Claude Code conversation:
 ```
 /avoid-ai-writing-de
 /avoid-ai-writing-ro
+/avoid-ai-writing-it
 ```
 
 ---
@@ -155,6 +160,8 @@ Now review the following text:
 | `/avoid-ai-writing-de` + `"nur prüfen:"` | Detect-only, no rewrite |
 | `/avoid-ai-writing-ro` | Romanian rewrite mode |
 | `/avoid-ai-writing-ro` + `"doar marcare:"` | Romanian detect-only |
+| `/avoid-ai-writing-it` | Italian rewrite mode |
+| `/avoid-ai-writing-it` + `"solo verifica:"` | Italian detect-only |
 
 You can also add a context hint to adjust tolerance:
 
@@ -166,16 +173,18 @@ You can also add a context hint to adjust tolerance:
 
 Available context profiles per language:
 
-| Profile | DE | RO |
-|---|---|---|
-| `blog` | ✅ | ✅ |
-| `technical` / `tehnic` | ✅ | ✅ |
-| `linkedin` | ✅ | — |
-| `email` | ✅ | ✅ |
-| `academic` | ✅ | ✅ |
-| `pressemitteilung` / `comunicat` | ✅ | ✅ |
-| `social` | ✅ | ✅ |
-| `ong` | — | ✅ |
+| Profile | DE | RO | IT |
+|---|---|---|---|
+| `blog` | ✅ | ✅ | ✅ |
+| `technical` / `tehnic` / `tecnico` | ✅ | ✅ | ✅ |
+| `linkedin` | ✅ | — | ✅ |
+| `email` | ✅ | ✅ | ✅ |
+| `academic` / `accademico` | ✅ | ✅ | ✅ |
+| `pressemitteilung` / `comunicat` / `comunicato` | ✅ | ✅ | ✅ |
+| `social` | ✅ | ✅ | ✅ |
+| `ong` | — | ✅ | — |
+| `istituzionale` | — | — | ✅ |
+| `tesi` | — | — | ✅ |
 
 ### In web tools (Claude Projects, Custom GPTs)
 
@@ -238,11 +247,13 @@ The process defined in [CLAUDE.md](CLAUDE.md) requires:
 /
 ├── SKILL-DE.md             ← German (v2.1.0, source-verified)
 ├── SKILL-RO.md             ← Romanian (v1.0.0, source-verified)
+├── SKILL-IT.md             ← Italian (v1.0.0, source-verified)
 ├── CLAUDE.md               ← Authoring instructions (how to create new skills)
 ├── README.md               ← This file
 └── sources/
-    ├── DE-sources.md       ← Citations for German patterns  [planned]
-    └── RO-sources.md       ← Citations for Romanian patterns
+    ├── DE-sources.md       ← Citations for German patterns
+    ├── RO-sources.md       ← Citations for Romanian patterns
+    └── IT-sources.md       ← Citations for Italian patterns
 ```
 
 ---
