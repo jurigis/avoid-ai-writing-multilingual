@@ -12,7 +12,7 @@ Goal: one `SKILL-XX.md` per language (ISO 639-1 code), grounded exclusively in r
 ├── SKILL-DE.md             ← German (done, v2.1.0, source-verified)
 ├── SKILL-RO.md             ← Romanian (done, v1.0.0, source-verified)
 ├── SKILL-IT.md             ← Italian (done, v1.0.0, source-verified)
-├── SKILL-FR.md             ← French (TODO)
+├── SKILL-FR.md             ← French (done, v1.0.0, source-verified)
 ├── SKILL-ES.md             ← Spanish (TODO)
 ├── README.md               ← Public documentation and install instructions
 └── sources/

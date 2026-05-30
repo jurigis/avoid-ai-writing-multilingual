@@ -13,8 +13,9 @@ Each `SKILL-XX.md` file is grounded in **statistically documented, language-nati
 | [SKILL-DE.md](SKILL-DE.md) | German (Deutsch) | 2.1.0 | ✅ Ready | LinkedIn / New Work / corporate comms |
 | [SKILL-RO.md](SKILL-RO.md) | Romanian (Română) | 1.0.0 | ✅ Ready | NGO / EU-funded project communication |
 | [SKILL-IT.md](SKILL-IT.md) | Italian (Italiano) | 1.0.0 | ✅ Ready | Cultural institution communication / startup press releases |
+| [SKILL-FR.md](SKILL-FR.md) | French (Français) | 1.0.0 | ✅ Ready | Management memos / Grandes Écoles / LinkedIn |
 
-Planned: French (`SKILL-FR.md`), Spanish (`SKILL-ES.md`) — PRs welcome.
+Planned: Spanish (`SKILL-ES.md`) — PRs welcome.
 
 ---
 
@@ -44,12 +45,14 @@ mkdir -p ~/.claude/skills
 cp SKILL-DE.md ~/.claude/skills/avoid-ai-writing-de.md
 cp SKILL-RO.md ~/.claude/skills/avoid-ai-writing-ro.md
 cp SKILL-IT.md ~/.claude/skills/avoid-ai-writing-it.md
+cp SKILL-FR.md ~/.claude/skills/avoid-ai-writing-fr.md
 
 # Windows (PowerShell)
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
 Copy-Item SKILL-DE.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-de.md"
 Copy-Item SKILL-RO.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-ro.md"
 Copy-Item SKILL-IT.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-it.md"
+Copy-Item SKILL-FR.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-fr.md"
 ```
 
 **Project install** — available only in the current repository:
@@ -58,6 +61,7 @@ mkdir -p .claude/skills
 cp SKILL-DE.md .claude/skills/
 cp SKILL-RO.md .claude/skills/
 cp SKILL-IT.md .claude/skills/
+cp SKILL-FR.md .claude/skills/
 ```
 
 After installing, invoke in any Claude Code conversation:
@@ -65,6 +69,7 @@ After installing, invoke in any Claude Code conversation:
 /avoid-ai-writing-de
 /avoid-ai-writing-ro
 /avoid-ai-writing-it
+/avoid-ai-writing-fr
 ```
 
 ---
@@ -162,6 +167,8 @@ Now review the following text:
 | `/avoid-ai-writing-ro` + `"doar marcare:"` | Romanian detect-only |
 | `/avoid-ai-writing-it` | Italian rewrite mode |
 | `/avoid-ai-writing-it` + `"solo verifica:"` | Italian detect-only |
+| `/avoid-ai-writing-fr` | French rewrite mode |
+| `/avoid-ai-writing-fr` + `"seulement flaguer:"` | French detect-only |
 
 You can also add a context hint to adjust tolerance:
 
@@ -173,18 +180,19 @@ You can also add a context hint to adjust tolerance:
 
 Available context profiles per language:
 
-| Profile | DE | RO | IT |
-|---|---|---|---|
-| `blog` | ✅ | ✅ | ✅ |
-| `technical` / `tehnic` / `tecnico` | ✅ | ✅ | ✅ |
-| `linkedin` | ✅ | — | ✅ |
-| `email` | ✅ | ✅ | ✅ |
-| `academic` / `accademico` | ✅ | ✅ | ✅ |
-| `pressemitteilung` / `comunicat` / `comunicato` | ✅ | ✅ | ✅ |
-| `social` | ✅ | ✅ | ✅ |
-| `ong` | — | ✅ | — |
-| `istituzionale` | — | — | ✅ |
-| `tesi` | — | — | ✅ |
+| Profile | DE | RO | IT | FR |
+|---|---|---|---|---|
+| `blog` | ✅ | ✅ | ✅ | ✅ |
+| `technical` / `tehnic` / `tecnico` / `technique` | ✅ | ✅ | ✅ | ✅ |
+| `linkedin` | ✅ | — | ✅ | ✅ |
+| `email` | ✅ | ✅ | ✅ | ✅ |
+| `academic` / `accademico` / `académique` | ✅ | ✅ | ✅ | ✅ |
+| `pressemitteilung` / `comunicat` / `comunicato` / `communiqué` | ✅ | ✅ | ✅ | ✅ |
+| `social` | ✅ | ✅ | ✅ | ✅ |
+| `management` | — | — | — | ✅ |
+| `ong` | — | ✅ | — | — |
+| `istituzionale` | — | — | ✅ | — |
+| `tesi` | — | — | ✅ | — |
 
 ### In web tools (Claude Projects, Custom GPTs)
 
@@ -204,12 +212,12 @@ To switch modes:
 Paste this into Claude Code (or any AI with access to this repository):
 
 ```
-Create SKILL-FR.md for French. Follow the process in CLAUDE.md exactly.
+Create SKILL-ES.md for Spanish. Follow the process in CLAUDE.md exactly.
 Research sources first — do NOT write from memory or translate from English.
-Search in French, not in English. Use SKILL-DE.md as the structural reference.
+Search in Spanish, not in English. Use SKILL-DE.md as the structural reference.
 ```
 
-Replace `FR` / `French` with your target language and ISO 639-1 code.
+Replace `ES` / `Spanish` with your target language and ISO 639-1 code.
 
 ### What the process produces
 
@@ -248,12 +256,14 @@ The process defined in [CLAUDE.md](CLAUDE.md) requires:
 ├── SKILL-DE.md             ← German (v2.1.0, source-verified)
 ├── SKILL-RO.md             ← Romanian (v1.0.0, source-verified)
 ├── SKILL-IT.md             ← Italian (v1.0.0, source-verified)
+├── SKILL-FR.md             ← French (v1.0.0, source-verified)
 ├── CLAUDE.md               ← Authoring instructions (how to create new skills)
 ├── README.md               ← This file
 └── sources/
     ├── DE-sources.md       ← Citations for German patterns
     ├── RO-sources.md       ← Citations for Romanian patterns
-    └── IT-sources.md       ← Citations for Italian patterns
+    ├── IT-sources.md       ← Citations for Italian patterns
+    └── FR-sources.md       ← Citations for French patterns
 ```
 
 ---
@@ -261,7 +271,7 @@ The process defined in [CLAUDE.md](CLAUDE.md) requires:
 ## Design Principles
 
 - **Statistically grounded, not opinionated.** Patterns are included only when sources show they are over-represented in LLM output for that language. General bad style is not a KI tell.
-- **Language-native.** English patterns are not translated. Each language has its own statistical anomalies (e.g. Romanian calques from English, German Nominalstil clusters, French subjunctive hedging).
+- **Language-native.** English patterns are not translated. Each language has its own statistical anomalies (e.g. Romanian calques from English, German Nominalstil clusters, French management jargon and impersonal distancing formulas).
 - **Context-aware.** Technical writing, academic prose, and legal documents have different baselines. The skill adjusts its strictness by context profile.
 - **Severity-graded.** P0 patterns are always removed. P1 patterns are usually removed. P2 patterns are evaluated in context.
 
