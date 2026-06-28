@@ -14,6 +14,7 @@ Each `SKILL-XX.md` file is grounded in **statistically documented, language-nati
 | [SKILL-RO.md](SKILL-RO.md) | Romanian (Română) | 1.0.0 | ✅ Ready | NGO / EU-funded project communication |
 | [SKILL-IT.md](SKILL-IT.md) | Italian (Italiano) | 1.0.0 | ✅ Ready | Cultural institution communication / startup press releases |
 | [SKILL-FR.md](SKILL-FR.md) | French (Français) | 1.0.0 | ✅ Ready | Management memos / Grandes Écoles / LinkedIn |
+| [SKILL-SV.md](SKILL-SV.md) | Swedish (Svenska) | 1.0.0 | ✅ Ready | LinkedIn brag-posts / business comms / job applications |
 
 Planned: Spanish (`SKILL-ES.md`) — PRs welcome.
 
@@ -46,6 +47,7 @@ cp SKILL-DE.md ~/.claude/skills/avoid-ai-writing-de.md
 cp SKILL-RO.md ~/.claude/skills/avoid-ai-writing-ro.md
 cp SKILL-IT.md ~/.claude/skills/avoid-ai-writing-it.md
 cp SKILL-FR.md ~/.claude/skills/avoid-ai-writing-fr.md
+cp SKILL-SV.md ~/.claude/skills/avoid-ai-writing-sv.md
 
 # Windows (PowerShell)
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
@@ -53,6 +55,7 @@ Copy-Item SKILL-DE.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-de.md"
 Copy-Item SKILL-RO.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-ro.md"
 Copy-Item SKILL-IT.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-it.md"
 Copy-Item SKILL-FR.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-fr.md"
+Copy-Item SKILL-SV.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-sv.md"
 ```
 
 **Project install** — available only in the current repository:
@@ -62,6 +65,7 @@ cp SKILL-DE.md .claude/skills/
 cp SKILL-RO.md .claude/skills/
 cp SKILL-IT.md .claude/skills/
 cp SKILL-FR.md .claude/skills/
+cp SKILL-SV.md .claude/skills/
 ```
 
 After installing, invoke in any Claude Code conversation:
@@ -70,6 +74,7 @@ After installing, invoke in any Claude Code conversation:
 /avoid-ai-writing-ro
 /avoid-ai-writing-it
 /avoid-ai-writing-fr
+/avoid-ai-writing-sv
 ```
 
 ---
@@ -169,6 +174,8 @@ Now review the following text:
 | `/avoid-ai-writing-it` + `"solo verifica:"` | Italian detect-only |
 | `/avoid-ai-writing-fr` | French rewrite mode |
 | `/avoid-ai-writing-fr` + `"seulement flaguer:"` | French detect-only |
+| `/avoid-ai-writing-sv` | Swedish rewrite mode |
+| `/avoid-ai-writing-sv` + `"bara markera:"` | Swedish detect-only |
 
 You can also add a context hint to adjust tolerance:
 
@@ -180,19 +187,20 @@ You can also add a context hint to adjust tolerance:
 
 Available context profiles per language:
 
-| Profile | DE | RO | IT | FR |
-|---|---|---|---|---|
-| `blog` | ✅ | ✅ | ✅ | ✅ |
-| `technical` / `tehnic` / `tecnico` / `technique` | ✅ | ✅ | ✅ | ✅ |
-| `linkedin` | ✅ | — | ✅ | ✅ |
-| `email` | ✅ | ✅ | ✅ | ✅ |
-| `academic` / `accademico` / `académique` | ✅ | ✅ | ✅ | ✅ |
-| `pressemitteilung` / `comunicat` / `comunicato` / `communiqué` | ✅ | ✅ | ✅ | ✅ |
-| `social` | ✅ | ✅ | ✅ | ✅ |
-| `management` | — | — | — | ✅ |
-| `ong` | — | ✅ | — | — |
-| `istituzionale` | — | — | ✅ | — |
-| `tesi` | — | — | ✅ | — |
+| Profile | DE | RO | IT | FR | SV |
+|---|---|---|---|---|---|
+| `blog` / `blogg` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `technical` / `tehnic` / `tecnico` / `technique` / `teknisk` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `linkedin` | ✅ | — | ✅ | ✅ | ✅ |
+| `email` / `mejl` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `academic` / `accademico` / `académique` / `akademisk` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `pressemitteilung` / `comunicat` / `comunicato` / `communiqué` / `pressmeddelande` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `social` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `management` | — | — | — | ✅ | — |
+| `ong` | — | ✅ | — | — | — |
+| `istituzionale` | — | — | ✅ | — | — |
+| `tesi` | — | — | ✅ | — | — |
+| `jobbansokan` | — | — | — | — | ✅ |
 
 ### In web tools (Claude Projects, Custom GPTs)
 
@@ -200,7 +208,7 @@ Just paste your text. No slash commands needed — the system prompt is always a
 
 To switch modes:
 - **Rewrite (default):** paste text and send
-- **Detect only:** start your message with `"nur prüfen:"` (DE) or `"doar marcare:"` (RO)
+- **Detect only:** start your message with `"nur prüfen:"` (DE), `"doar marcare:"` (RO) or `"bara markera:"` (SV)
 - **Context hint:** start with `"context: academic"` or the equivalent
 
 ---
@@ -257,13 +265,15 @@ The process defined in [CLAUDE.md](CLAUDE.md) requires:
 ├── SKILL-RO.md             ← Romanian (v1.0.0, source-verified)
 ├── SKILL-IT.md             ← Italian (v1.0.0, source-verified)
 ├── SKILL-FR.md             ← French (v1.0.0, source-verified)
+├── SKILL-SV.md             ← Swedish (v1.0.0, source-verified)
 ├── CLAUDE.md               ← Authoring instructions (how to create new skills)
 ├── README.md               ← This file
 └── sources/
     ├── DE-sources.md       ← Citations for German patterns
     ├── RO-sources.md       ← Citations for Romanian patterns
     ├── IT-sources.md       ← Citations for Italian patterns
-    └── FR-sources.md       ← Citations for French patterns
+    ├── FR-sources.md       ← Citations for French patterns
+    └── SV-sources.md       ← Citations for Swedish patterns
 ```
 
 ---
