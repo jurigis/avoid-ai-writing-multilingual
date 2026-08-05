@@ -287,6 +287,16 @@ The process defined in [CLAUDE.md](CLAUDE.md) requires:
 
 ---
 
+## Contributors
+
+| Language | Contributor | 
+|---|---|
+| Swedish (SKILL-SV.md) | [@rasmusbe](https://github.com/rasmusbe) |
+
+Want to add a language? See [How to Add a New Language](#how-to-add-a-new-language) below. PRs that follow the CLAUDE.md process are welcome.
+
+---
+
 ## License
 
 MIT — based on [avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) (v3.4) by [Conor Bronsdon](https://github.com/conorbronsdon/avoid-ai-writing).  
