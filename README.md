@@ -35,6 +35,15 @@ Patterns covered include: chatbot openers, generic conclusions, semantic inflati
 
 ## How to Install
 
+### A0 · Claude Code plugin marketplace (all five skills in one step)
+
+```
+/plugin marketplace add jurigis/avoid-ai-writing-multilingual
+/plugin install avoid-ai-writing-multilingual@avoid-ai-writing-multilingual
+```
+
+This installs `/avoid-ai-writing-de`, `-ro`, `-it`, `-fr` and `-sv`. To install a single language, use option A below.
+
 ### A · Claude Code (CLI and VS Code / JetBrains extensions)
 
 Skills live in `.md` files. The `name:` field in the frontmatter becomes the slash command.
