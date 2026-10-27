@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "avoid-ai-writing-multilingual",
+  "description": "Language-specific skills that remove AI writing patterns from non-English text",
+  "owner": {
+    "name": "Jürgen Kraus",
+    "url": "https://github.com/jurigis"
+  },
+  "plugins": [
+    {
+      "name": "avoid-ai-writing-multilingual",
+      "source": "./",
+      "description": "Skills for German, Romanian, Italian, French and Swedish, each grounded in patterns documented for that language rather than translated from English.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": ["writing", "ai-writing", "humanizer", "multilingual"]
+    }
+  ]
+}

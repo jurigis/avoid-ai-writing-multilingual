@@ -1,0 +1,9 @@
+{
+  "name": "avoid-ai-writing-multilingual",
+  "version": "1.0.0",
+  "description": "Language-specific skills that detect and remove statistically documented AI writing patterns in German, Romanian, Italian, French and Swedish.",
+  "license": "MIT",
+  "homepage": "https://github.com/jurigis/avoid-ai-writing-multilingual",
+  "repository": "https://github.com/jurigis/avoid-ai-writing-multilingual",
+  "keywords": ["writing", "ai-writing", "humanizer", "multilingual"]
+}
