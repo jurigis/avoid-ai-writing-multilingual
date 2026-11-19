@@ -44,6 +44,20 @@ Patterns covered include: chatbot openers, generic conclusions, semantic inflati
 
 This installs `/avoid-ai-writing-de`, `-ro`, `-it`, `-fr` and `-sv`. Plugin skills may also be listed with the plugin prefix, e.g. `/avoid-ai-writing-multilingual:avoid-ai-writing-de`. To install a single language, use option A below.
 
+This works in Claude Code only. On claude.ai or ChatGPT, use option B or C.
+
+**Update** to the latest version:
+```
+/plugin marketplace update avoid-ai-writing-multilingual
+/plugin update avoid-ai-writing-multilingual@avoid-ai-writing-multilingual
+```
+The new version loads in your next session, or right away after `/reload-plugins`.
+
+**Uninstall:**
+```
+/plugin uninstall avoid-ai-writing-multilingual@avoid-ai-writing-multilingual
+```
+
 ### A · Claude Code (CLI and VS Code / JetBrains extensions)
 
 Each skill is a folder with a `SKILL.md` inside. Claude Code only finds skills in that layout (`skills/<name>/SKILL.md`); a loose `.md` file directly in `skills/` is ignored. The folder name becomes the slash command.
