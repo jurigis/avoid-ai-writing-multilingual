@@ -2,7 +2,7 @@
 
 Language-specific versions of the [avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) skill by Conor Bronsdon (MIT licence), extended to languages beyond English.
 
-Each `SKILL-XX.md` file is grounded in **statistically documented, language-native AI writing patterns** — not translated from English. Every flagged word or phrase must be traceable to a real source showing it is over-represented in LLM output for that specific language.
+Each `skills/avoid-ai-writing-XX/SKILL.md` file is grounded in **statistically documented, language-native AI writing patterns** — not translated from English. Every flagged word or phrase must be traceable to a real source showing it is over-represented in LLM output for that specific language.
 
 ---
 
@@ -10,13 +10,13 @@ Each `SKILL-XX.md` file is grounded in **statistically documented, language-nati
 
 | File | Language | Version | Status | Key context |
 |---|---|---|---|---|
-| [SKILL-DE.md](SKILL-DE.md) | German (Deutsch) | 2.1.0 | ✅ Ready | LinkedIn / New Work / corporate comms |
-| [SKILL-RO.md](SKILL-RO.md) | Romanian (Română) | 1.0.0 | ✅ Ready | NGO / EU-funded project communication |
-| [SKILL-IT.md](SKILL-IT.md) | Italian (Italiano) | 1.0.0 | ✅ Ready | Cultural institution communication / startup press releases |
-| [SKILL-FR.md](SKILL-FR.md) | French (Français) | 1.0.0 | ✅ Ready | Management memos / Grandes Écoles / LinkedIn |
-| [SKILL-SV.md](SKILL-SV.md) | Swedish (Svenska) | 1.0.0 | ✅ Ready | LinkedIn brag-posts / business comms / job applications |
+| [skills/avoid-ai-writing-de/SKILL.md](skills/avoid-ai-writing-de/SKILL.md) | German (Deutsch) | 2.1.0 | ✅ Ready | LinkedIn / New Work / corporate comms |
+| [skills/avoid-ai-writing-ro/SKILL.md](skills/avoid-ai-writing-ro/SKILL.md) | Romanian (Română) | 1.0.0 | ✅ Ready | NGO / EU-funded project communication |
+| [skills/avoid-ai-writing-it/SKILL.md](skills/avoid-ai-writing-it/SKILL.md) | Italian (Italiano) | 1.0.0 | ✅ Ready | Cultural institution communication / startup press releases |
+| [skills/avoid-ai-writing-fr/SKILL.md](skills/avoid-ai-writing-fr/SKILL.md) | French (Français) | 1.0.0 | ✅ Ready | Management memos / Grandes Écoles / LinkedIn |
+| [skills/avoid-ai-writing-sv/SKILL.md](skills/avoid-ai-writing-sv/SKILL.md) | Swedish (Svenska) | 1.0.0 | ✅ Ready | LinkedIn brag-posts / business comms / job applications |
 
-Planned: Spanish (`SKILL-ES.md`) — PRs welcome.
+Planned: Spanish (`skills/avoid-ai-writing-es/SKILL.md`) — PRs welcome.
 
 ---
 
@@ -35,6 +35,15 @@ Patterns covered include: chatbot openers, generic conclusions, semantic inflati
 
 ## How to Install
 
+### A0 · Claude Code plugin marketplace (all five skills in one step)
+
+```
+/plugin marketplace add jurigis/avoid-ai-writing-multilingual
+/plugin install avoid-ai-writing-multilingual@avoid-ai-writing-multilingual
+```
+
+This installs `/avoid-ai-writing-de`, `-ro`, `-it`, `-fr` and `-sv`. To install a single language, use option A below.
+
 ### A · Claude Code (CLI and VS Code / JetBrains extensions)
 
 Skills live in `.md` files. The `name:` field in the frontmatter becomes the slash command.
@@ -43,29 +52,29 @@ Skills live in `.md` files. The `name:` field in the frontmatter becomes the sla
 ```bash
 # macOS / Linux
 mkdir -p ~/.claude/skills
-cp SKILL-DE.md ~/.claude/skills/avoid-ai-writing-de.md
-cp SKILL-RO.md ~/.claude/skills/avoid-ai-writing-ro.md
-cp SKILL-IT.md ~/.claude/skills/avoid-ai-writing-it.md
-cp SKILL-FR.md ~/.claude/skills/avoid-ai-writing-fr.md
-cp SKILL-SV.md ~/.claude/skills/avoid-ai-writing-sv.md
+cp skills/avoid-ai-writing-de/SKILL.md ~/.claude/skills/avoid-ai-writing-de.md
+cp skills/avoid-ai-writing-ro/SKILL.md ~/.claude/skills/avoid-ai-writing-ro.md
+cp skills/avoid-ai-writing-it/SKILL.md ~/.claude/skills/avoid-ai-writing-it.md
+cp skills/avoid-ai-writing-fr/SKILL.md ~/.claude/skills/avoid-ai-writing-fr.md
+cp skills/avoid-ai-writing-sv/SKILL.md ~/.claude/skills/avoid-ai-writing-sv.md
 
 # Windows (PowerShell)
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
-Copy-Item SKILL-DE.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-de.md"
-Copy-Item SKILL-RO.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-ro.md"
-Copy-Item SKILL-IT.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-it.md"
-Copy-Item SKILL-FR.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-fr.md"
-Copy-Item SKILL-SV.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-sv.md"
+Copy-Item skills/avoid-ai-writing-de/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-de.md"
+Copy-Item skills/avoid-ai-writing-ro/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-ro.md"
+Copy-Item skills/avoid-ai-writing-it/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-it.md"
+Copy-Item skills/avoid-ai-writing-fr/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-fr.md"
+Copy-Item skills/avoid-ai-writing-sv/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-sv.md"
 ```
 
 **Project install** — available only in the current repository:
 ```bash
 mkdir -p .claude/skills
-cp SKILL-DE.md .claude/skills/
-cp SKILL-RO.md .claude/skills/
-cp SKILL-IT.md .claude/skills/
-cp SKILL-FR.md .claude/skills/
-cp SKILL-SV.md .claude/skills/
+cp skills/avoid-ai-writing-de/SKILL.md .claude/skills/avoid-ai-writing-de.md
+cp skills/avoid-ai-writing-ro/SKILL.md .claude/skills/avoid-ai-writing-ro.md
+cp skills/avoid-ai-writing-it/SKILL.md .claude/skills/avoid-ai-writing-it.md
+cp skills/avoid-ai-writing-fr/SKILL.md .claude/skills/avoid-ai-writing-fr.md
+cp skills/avoid-ai-writing-sv/SKILL.md .claude/skills/avoid-ai-writing-sv.md
 ```
 
 After installing, invoke in any Claude Code conversation:
@@ -85,7 +94,7 @@ Claude Projects let you attach a persistent system prompt to a conversation thre
 
 1. Open [claude.ai](https://claude.ai) → **Projects** → **New Project**
 2. Click **Project Instructions**
-3. Paste the full content of `SKILL-DE.md` or `SKILL-RO.md`
+3. Paste the full content of `skills/avoid-ai-writing-de/SKILL.md` or `skills/avoid-ai-writing-ro/SKILL.md`
 4. Name the project (e.g. "AI Writing Reviewer — German")
 5. Every new conversation inside this project applies the skill automatically
 
@@ -97,7 +106,7 @@ Claude Projects let you attach a persistent system prompt to a conversation thre
 
 1. Go to [chatgpt.com](https://chatgpt.com) → **Explore GPTs** → **Create**
 2. Switch to the **Configure** tab
-3. Paste the full content of `SKILL-XX.md` into the **Instructions** field
+3. Paste the full content of `skills/avoid-ai-writing-XX/SKILL.md` into the **Instructions** field
 4. Set a name, e.g. "AI Writing Detector – German"
 5. Save → **Only me** (private) or share the link
 
@@ -149,7 +158,7 @@ Paste the skill content into the system prompt / custom instructions field of yo
 Copy the full file content and paste it at the start of your conversation, then add your text:
 
 ```
-[paste full SKILL-XX.md content]
+[paste full skills/avoid-ai-writing-XX/SKILL.md content]
 
 ---
 
@@ -220,9 +229,9 @@ To switch modes:
 Paste this into Claude Code (or any AI with access to this repository):
 
 ```
-Create SKILL-ES.md for Spanish. Follow the process in CLAUDE.md exactly.
+Create skills/avoid-ai-writing-es/SKILL.md for Spanish. Follow the process in CLAUDE.md exactly.
 Research sources first — do NOT write from memory or translate from English.
-Search in Spanish, not in English. Use SKILL-DE.md as the structural reference.
+Search in Spanish, not in English. Use skills/avoid-ai-writing-de/SKILL.md as the structural reference.
 ```
 
 Replace `ES` / `Spanish` with your target language and ISO 639-1 code.
@@ -261,11 +270,13 @@ The process defined in [CLAUDE.md](CLAUDE.md) requires:
 
 ```
 /
-├── SKILL-DE.md             ← German (v2.1.0, source-verified)
-├── SKILL-RO.md             ← Romanian (v1.0.0, source-verified)
-├── SKILL-IT.md             ← Italian (v1.0.0, source-verified)
-├── SKILL-FR.md             ← French (v1.0.0, source-verified)
-├── SKILL-SV.md             ← Swedish (v1.0.0, source-verified)
+├── .claude-plugin/         ← Plugin marketplace manifests
+├── skills/
+│   ├── avoid-ai-writing-de/SKILL.md  ← German (v2.1.0, source-verified)
+│   ├── avoid-ai-writing-ro/SKILL.md  ← Romanian (v1.0.0, source-verified)
+│   ├── avoid-ai-writing-it/SKILL.md  ← Italian (v1.0.0, source-verified)
+│   ├── avoid-ai-writing-fr/SKILL.md  ← French (v1.0.0, source-verified)
+│   └── avoid-ai-writing-sv/SKILL.md  ← Swedish (v1.0.0, source-verified)
 ├── CLAUDE.md               ← Authoring instructions (how to create new skills)
 ├── README.md               ← This file
 └── sources/
@@ -291,7 +302,7 @@ The process defined in [CLAUDE.md](CLAUDE.md) requires:
 
 | Language | Contributor | 
 |---|---|
-| Swedish (SKILL-SV.md) | [@rasmusbe](https://github.com/rasmusbe) |
+| Swedish (`skills/avoid-ai-writing-sv/SKILL.md`) | [@rasmusbe](https://github.com/rasmusbe) |
 
 Want to add a language? See [How to Add a New Language](#how-to-add-a-new-language) below. PRs that follow the CLAUDE.md process are welcome.
 
