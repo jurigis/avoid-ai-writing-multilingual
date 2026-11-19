@@ -2,19 +2,21 @@
 
 This project creates language-specific versions of the [avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) skill by Conor Bronsdon (MIT licence) for languages beyond English.
 
-Goal: one `SKILL-XX.md` per language (ISO 639-1 code), grounded exclusively in real, statistically documented AI writing patterns native to that language — not translated from the English original.
+Goal: one `skills/avoid-ai-writing-xx/SKILL.md` per language (ISO 639-1 code), grounded exclusively in real, statistically documented AI writing patterns native to that language — not translated from the English original.
 
 ## Project Structure
 
 ```
 /
 ├── CLAUDE.md               ← this file (authoring instructions for AI)
-├── SKILL-DE.md             ← German (done, v2.1.0, source-verified)
-├── SKILL-RO.md             ← Romanian (done, v1.0.0, source-verified)
-├── SKILL-IT.md             ← Italian (done, v1.0.0, source-verified)
-├── SKILL-FR.md             ← French (done, v1.0.0, source-verified)
-├── SKILL-SV.md             ← Swedish (done, v1.0.0, source-verified)
-├── SKILL-ES.md             ← Spanish (TODO)
+├── .claude-plugin/         ← plugin marketplace manifests (marketplace.json, plugin.json)
+├── skills/
+│   ├── avoid-ai-writing-de/SKILL.md  ← German (done, v2.1.0, source-verified)
+│   ├── avoid-ai-writing-ro/SKILL.md  ← Romanian (done, v1.0.0, source-verified)
+│   ├── avoid-ai-writing-it/SKILL.md  ← Italian (done, v1.0.0, source-verified)
+│   ├── avoid-ai-writing-fr/SKILL.md  ← French (done, v1.0.0, source-verified)
+│   ├── avoid-ai-writing-sv/SKILL.md  ← Swedish (done, v1.0.0, source-verified)
+│   └── avoid-ai-writing-es/SKILL.md  ← Spanish (TODO)
 ├── README.md               ← Public documentation and install instructions
 └── sources/
     ├── DE-sources.md       ← Citations for German patterns
@@ -129,12 +131,15 @@ Check before committing:
 - [ ] Tolerance matrix is filled in
 - [ ] Severity grades (P0/P1/P2) are assigned in all pattern tables
 - [ ] Version is set to `1.0.0` for first release
+- [ ] Skill lives at `skills/avoid-ai-writing-xx/SKILL.md` and its `name:` matches the folder name
+- [ ] New language added to the descriptions in `.claude-plugin/marketplace.json` and `plugin.json`, and to the README table
+- [ ] Plugin `version` in both manifests bumped (otherwise existing installs may not pick up the change)
 
 ---
 
 ## Reference Implementation
 
-`SKILL-DE.md` (v2.1.0) is the reference for structure and depth.
+`skills/avoid-ai-writing-de/SKILL.md` (v2.1.0) is the reference for structure and depth.
 Verified sources for German:
 - German Wikipedia: "Anzeichen für KI-generierte Inhalte"
 - Ströer Media: "An diesen 5 Merkmalen erkennen Sie Texte von ChatGPT"
@@ -149,19 +154,19 @@ Verified sources for German:
 
 To create a new skill:
 ```
-Create SKILL-FR.md for French. Follow the process in CLAUDE.md exactly.
+Create skills/avoid-ai-writing-fr/SKILL.md for French. Follow the process in CLAUDE.md exactly.
 Research sources first — do NOT write from memory or translate from English.
-Search in French, not in English. Use SKILL-DE.md as the structural reference.
+Search in French, not in English. Use skills/avoid-ai-writing-de/SKILL.md as the structural reference.
 ```
 
 To review an existing skill:
 ```
-Review SKILL-DE.md: check whether all Tier-1 entries are genuine AI tells
+Review skills/avoid-ai-writing-de/SKILL.md: check whether all Tier-1 entries are genuine AI tells
 and not just general style problems. Provide sources or remove the entry.
 ```
 
 To improve an example:
 ```
-The example in SKILL-FR.md sounds translated. Replace it with an
+The example in skills/avoid-ai-writing-fr/SKILL.md sounds translated. Replace it with an
 authentic example drawn from the French-language context.
 ```

@@ -42,39 +42,32 @@ Patterns covered include: chatbot openers, generic conclusions, semantic inflati
 /plugin install avoid-ai-writing-multilingual@avoid-ai-writing-multilingual
 ```
 
-This installs `/avoid-ai-writing-de`, `-ro`, `-it`, `-fr` and `-sv`. To install a single language, use option A below.
+This installs `/avoid-ai-writing-de`, `-ro`, `-it`, `-fr` and `-sv`. Plugin skills may also be listed with the plugin prefix, e.g. `/avoid-ai-writing-multilingual:avoid-ai-writing-de`. To install a single language, use option A below.
 
 ### A · Claude Code (CLI and VS Code / JetBrains extensions)
 
-Skills live in `.md` files. The `name:` field in the frontmatter becomes the slash command.
+Each skill is a folder with a `SKILL.md` inside. Claude Code only finds skills in that layout (`skills/<name>/SKILL.md`); a loose `.md` file directly in `skills/` is ignored. The folder name becomes the slash command.
+
+Clone the repository first, then run the commands from its root.
 
 **Global install** — available in every project:
 ```bash
-# macOS / Linux
+# macOS / Linux: all five languages
 mkdir -p ~/.claude/skills
-cp skills/avoid-ai-writing-de/SKILL.md ~/.claude/skills/avoid-ai-writing-de.md
-cp skills/avoid-ai-writing-ro/SKILL.md ~/.claude/skills/avoid-ai-writing-ro.md
-cp skills/avoid-ai-writing-it/SKILL.md ~/.claude/skills/avoid-ai-writing-it.md
-cp skills/avoid-ai-writing-fr/SKILL.md ~/.claude/skills/avoid-ai-writing-fr.md
-cp skills/avoid-ai-writing-sv/SKILL.md ~/.claude/skills/avoid-ai-writing-sv.md
+cp -r skills/avoid-ai-writing-* ~/.claude/skills/
 
-# Windows (PowerShell)
+# macOS / Linux: one language only, e.g. German
+cp -r skills/avoid-ai-writing-de ~/.claude/skills/
+
+# Windows (PowerShell): all five languages
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
-Copy-Item skills/avoid-ai-writing-de/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-de.md"
-Copy-Item skills/avoid-ai-writing-ro/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-ro.md"
-Copy-Item skills/avoid-ai-writing-it/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-it.md"
-Copy-Item skills/avoid-ai-writing-fr/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-fr.md"
-Copy-Item skills/avoid-ai-writing-sv/SKILL.md "$env:USERPROFILE\.claude\skills\avoid-ai-writing-sv.md"
+Copy-Item -Recurse skills\avoid-ai-writing-* "$env:USERPROFILE\.claude\skills\"
 ```
 
-**Project install** — available only in the current repository:
+**Project install** — available only in the current repository (replace `/path/to/` with where you cloned this repo):
 ```bash
 mkdir -p .claude/skills
-cp skills/avoid-ai-writing-de/SKILL.md .claude/skills/avoid-ai-writing-de.md
-cp skills/avoid-ai-writing-ro/SKILL.md .claude/skills/avoid-ai-writing-ro.md
-cp skills/avoid-ai-writing-it/SKILL.md .claude/skills/avoid-ai-writing-it.md
-cp skills/avoid-ai-writing-fr/SKILL.md .claude/skills/avoid-ai-writing-fr.md
-cp skills/avoid-ai-writing-sv/SKILL.md .claude/skills/avoid-ai-writing-sv.md
+cp -r /path/to/avoid-ai-writing-multilingual/skills/avoid-ai-writing-* .claude/skills/
 ```
 
 After installing, invoke in any Claude Code conversation:
@@ -140,7 +133,7 @@ Cursor Settings → **Rules for AI** → paste the skill content.
 
 Copilot will apply these instructions to all Copilot Chat conversations in that workspace. For per-file context, add the skill as a referenced file in a Copilot Chat prompt:
 ```
-#file:.claude/skills/avoid-ai-writing-de.md
+#file:.claude/skills/avoid-ai-writing-de/SKILL.md
 
 Review this text: [your text]
 ```
